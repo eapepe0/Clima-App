@@ -4,7 +4,7 @@ Proyecto realizado en **React** , utilice **useState**, **useContext** , **usePr
 
 ## Deploy
 
-[Link a la pagina](https://guitar-la-remix-puce.vercel.app/)
+[Link a la pagina](https://steady-florentine-724803.netlify.app/)
 
 ## Capturas
 
