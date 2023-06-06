@@ -39,18 +39,18 @@ const ClimaProvider = ({ children }) => {
         setNoResultado(false) //* ponemos el state en falso
         //* tratamos
         try {
-            const { ciudad, pais } = datos //* extaemos ciudad y pais del objeto {pais : "Argentina" , ciudad : "Buenos Aires"}
+            const { ciudad, pais } = datos //* extraemos ciudad y pais del objeto {pais : "Argentina" , ciudad : "Buenos Aires"}
             const appId = import.meta.env.VITE_API_KEY //* api key del .env
-            console.log(appId)
+
             const url = `https://api.openweathermap.org/geo/1.0/direct?q=${ciudad},${pais}&limit=1&appid=${appId}` //* creamos la url para el request
             const respuesta = await fetch(url); //* pedimos 
             const resultado = await respuesta.json() //* pasamos el resultado a json
-            console.log(resultado)
+
             const { lat, lon } = resultado[0] //* extraemos latitud y longitud de nuestra ciudad
             const urlClima = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${appId}&units=metric` //* creamos la url con los datos
             const respuestaClima = await fetch(urlClima); //* pedimos
             const resultadoClima = await respuestaClima.json() //* pasamos a json
-            console.log(resultadoClima)
+
             setCargando(true) //* ponemos el state de cargando en true
             setTimeout(() => {
                 setResultado(resultadoClima) //* ponemos el resultado de la api en resultado
